@@ -59,4 +59,15 @@ public class Process implements Watcher{
 	private void leave() {
 		System.out.println("Sai da barreira, posso continuar meu processamento!! =) ");
 	}
+	
+	public static void main(String[] args) {
+		System.out.println("Inciando processo " + Thread.currentThread().getId());
+        String hostPort = args[0];
+        String znode = args[1];
+        try {
+            new Process(hostPort, znode).enter();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 		
 }
